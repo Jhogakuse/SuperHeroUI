@@ -10,6 +10,7 @@ import { SuperHeroService } from './services/super-hero.service';
 export class AppComponent {
   title = 'SuperHeroUI';
   heroes: SuperHero[] = [];
+  heroToEdit?: SuperHero;
 
   constructor(private SuperHeroeService: SuperHeroService) {}
 
@@ -20,5 +21,28 @@ export class AppComponent {
         this.heroes = result;
         console.log(this.heroes);
       });
+  }
+
+  /**
+   * Update the hero list
+   * @param heroes 
+   */
+  updateHeroList(heroes:SuperHero[]) {
+    this.heroes = heroes;
+  }
+
+  /**
+   * Init a new hero
+   */
+  initNewHero() {
+    this.heroToEdit = new SuperHero();
+  }
+
+  /**
+   * Edit a hero
+   * @param hero 
+   */
+  editHero(hero: SuperHero) {
+    this.heroToEdit = hero;
   }
 }

@@ -1,0 +1,24 @@
+<div *ngIf="hero">
+    <h2>{{hero.name}}</h2>
+    <div>
+        Hero Name:
+        <input type="text" placeholder="Hero Name" [(ngModel)]="hero.name">
+    </div>
+    <div>
+        First Name:
+        <input type="text" placeholder="First Name" [(ngModel)]="hero.firstName">
+    </div>
+    <div>
+        Last Name:
+        <input type="text" placeholder="Last Name" [(ngModel)]="hero.lastName">
+    </div>
+    <div>
+        Place:
+        <input type="text" placeholder="Place" [(ngModel)]="hero.place">
+    </div>
+    <div>
+        <button (click)="updateHero(hero)" *ngIf="hero.id">Update</button>
+        <button (click)="deleteHero(hero)" *ngIf="hero.id">Delete</button>
+        <button (click)="createHero(hero)" *ngIf="!hero.id">Create</button>
+    </div>
+</div>
